@@ -1,0 +1,7 @@
+{
+  "webSocketConfig": {
+    "host": "localhost",
+    "port": 80,
+    "endpoint": "mentionbattle"
+  }
+}
