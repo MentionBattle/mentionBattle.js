@@ -1,1 +1,0 @@
-angular.module('templates', []).run(['$templateCache', function($templateCache) {$templateCache.put('src/partials/tmp.tpl.html','');}]);

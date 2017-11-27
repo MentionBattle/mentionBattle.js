@@ -41,6 +41,11 @@ gulp.task('config', function () {
         .pipe(gulp.dest('app/src/constants'));
 });
 
+gulp.task('index', function () {
+    return gulp.src('./app/index.html')
+        .pipe(gulp.dest('./dist/'));
+});
+
 gulp.task('scripts', ['config'], function () {
     return gulp.src('./app/**/*.js')
         .pipe(debug())
@@ -56,4 +61,4 @@ gulp.task('templates', function () {
         .pipe(gulp.dest('./dist/scripts'));
 });
 
-gulp.task('default', ['templates', 'libs', 'scss', 'scripts']);
+gulp.task('default', ['templates', 'libs', 'scss', 'scripts', 'index']);
