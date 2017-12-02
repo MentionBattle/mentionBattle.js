@@ -29,6 +29,11 @@ gulp.task('scss', function () {
         .pipe(gulp.dest('./dist/assets/'));
 });
 
+gulp.task('svg', function () {
+   return gulp.src('./app/assets/**/*.svg')
+       .pipe(gulp.dest('./dist/assets'));
+});
+
 gulp.task('config', function () {
     return gulp.src('app/config.json')
         .pipe(ngConstant({
@@ -57,8 +62,13 @@ gulp.task('scripts', ['config'], function () {
 
 gulp.task('templates', function () {
     return gulp.src('./app/**/*.tpl.html')
-        .pipe(templateCache('templates.js', {standalone: true}))
+        .pipe(templateCache('templates.js', {
+            standalone: true,
+            transformUrl: function (url) {
+                return url.replace(/^.+\\(.+)$/, '$1')
+            }
+        }))
         .pipe(gulp.dest('./dist/scripts'));
 });
 
-gulp.task('default', ['templates', 'libs', 'scss', 'scripts', 'index']);
+gulp.task('default', ['templates', 'libs', 'scss', 'scripts', 'index', 'svg']);

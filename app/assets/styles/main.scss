@@ -1,4 +1,34 @@
+@import "../../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap";
+
+$redColor: #ff6666;
+$blueColor: #64aeff;
+
 * {
   margin: 0;
   padding: 0;
+}
+
+.navbar {
+  background: none;
+  border: none;
+  .container {
+    border-bottom: 1px solid rgb(200, 200, 200);
+  }
+  .navbar-logo {
+    padding: 10px;
+    font-size: 25px;
+    span:last-of-type {
+      color: $blueColor;
+    }
+    span:first-of-type {
+      color: $redColor;
+    }
+    .logo {
+      width: 40px;
+      height: 40px;
+      background: url(../images/logo.svg) center no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
 }
