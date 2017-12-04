@@ -14,7 +14,7 @@ gulp.task('libs', ['lib-js', 'lib-css']);
 gulp.task('lib-js', function () {
     return gulp.src(bowerFiles("**/*.js"))
         .pipe(concat('vendor.js'))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest('./dist/scripts'));
 });
 gulp.task('lib-css', function () {
@@ -56,7 +56,7 @@ gulp.task('scripts', ['config'], function () {
         .pipe(debug())
         .pipe(ngAnnotate())
         .pipe(concat('scripts.js'))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest('./dist/scripts'));
 });
 

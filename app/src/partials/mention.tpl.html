@@ -1,0 +1,8 @@
+<li class="mention" ng-class="vm.mention.from">
+    <header>
+        {{vm.mention.name}} <span class="time">{{vm.mention.timestamp | moment: 'calendar'}}</span>
+    </header>
+    <article>
+        {{vm.mention.text}}
+    </article>
+</li>

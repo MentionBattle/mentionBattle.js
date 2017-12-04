@@ -2,9 +2,15 @@
     'use strict';
 
     angular
-        .module('app', ['templates', 'ui.router', 'config'])
-        .config(function ($stateProvider, $urlRouterProvider) {
-            $urlRouterProvider.otherwise('');
+        .module('app', [
+            'ngAnimate',
+
+            'templates',
+            'config'])
+        .constant('moment', moment)
+        .constant('_', _)
+        .run(function ($rootScope, loadingState) {
+            $rootScope.loadingState = loadingState;
         })
         .run(function (wsService) {
             wsService.open();

@@ -1,0 +1,9 @@
+<header class="info">
+    <header>{{vm.repo.getContender(vm.number).name}}</header>
+    <article>{{vm.repo.getContender(vm.number).votes}}</article>
+</header>
+<article class="col-md-6" ng-class="{'col-md-offset-6': vm.number === 2}">
+    <ul class="mentions">
+        <mention class="mention-list-item" ng-repeat="mention in vm.repo.getContender(vm.number).mentions" mention="mention"></mention>
+    </ul>
+</article>
