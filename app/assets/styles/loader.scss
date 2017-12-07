@@ -1,3 +1,28 @@
+
+@mixin colorCycle() {
+  0% {
+    color: $blueColor;
+  }
+  50% {
+    color: $blueColor;
+  }
+  51% {
+    color: $redColor;
+  }
+  100% {
+    color: $redColor;
+  }
+}
+
+@keyframes colorCycle {
+  @include colorCycle;
+}
+
+@-webkit-keyframes colorCycle {
+  @include colorCycle;
+}
+
+
 @mixin loader-frames() {
 
   0% {
@@ -64,3 +89,43 @@
 
 @-webkit-keyframes loader {@include loader-frames;}
 @keyframes loader {@include loader-frames;}
+
+
+.loading-main {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  .loading-container {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 200px;
+    height: 200px;
+    -webkit-animation: colorCycle 3.4s infinite ease;
+    animation: colorCycle 3.4s infinite ease;
+
+    .message {
+      font-size: 16px;
+      color: black;
+    }
+
+    .loader {
+      font-size: 90px;
+      text-indent: -9999em;
+      overflow: hidden;
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+      margin: 72px auto;
+      position: relative;
+      -webkit-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-animation: loader 1.7s infinite ease;
+      animation: loader 1.7s infinite ease;
+    }
+  }
+}

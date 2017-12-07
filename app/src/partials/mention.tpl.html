@@ -1,8 +1,10 @@
-<li class="mention" ng-class="vm.mention.from">
+<li class="mention" ng-class="vm.mention.from" ng-click="vm.mentionClick()">
     <header>
-        {{vm.mention.name}} <span class="time">{{vm.mention.timestamp | moment: 'calendar'}}</span>
+        <i class="mention-avatar" ng-style="{'background-image':'url(' + vm.mention.avatarUrl + ')'}"></i>
+        <span class="name" title="{{::vm.mention.name}}">{{::vm.mention.name}}</span>
+        <span class="time">{{vm.mention.timestamp | moment: 'calendar'}}</span>
     </header>
-    <article>
-        {{vm.mention.text}}
+    <article title="{{::vm.mention.text}}">
+        {{::vm.mention.text}}
     </article>
 </li>

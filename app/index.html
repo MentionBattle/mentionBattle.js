@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/styles/main.css" rel="stylesheet">
     <link href="assets/styles/vendor.css" rel="stylesheet">
+    <script src="scripts/vendor.js"></script>
+    <script src="scripts/templates.js"></script>
+    <script src="scripts/scripts.js"></script>
 </head>
 <body ng-app="app">
     <div ng-if="$root.loadingState.getState().state === 'loading'" class="loading-main">
@@ -18,18 +21,7 @@
     </div>
     <div ng-if="$root.loadingState.getState().state === 'done'" class="main">
         <navbar></navbar>
-        <article class="jumbotron">
-            <div class="container">
-                <i class="globe"></i>
-                <div class="row">
-                    <contender number="1" class="col-md-6"></contender>
-                    <contender number="2" class="col-md-6"></contender>
-                </div>
-            </div>
-        </article>
+        <mention-battle></mention-battle>
     </div>
-    <script src="scripts/vendor.js"></script>
-    <script src="scripts/templates.js"></script>
-    <script src="scripts/scripts.js"></script>
 </body>
 </html>

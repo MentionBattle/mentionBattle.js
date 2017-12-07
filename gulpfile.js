@@ -6,6 +6,7 @@ var debug = require('gulp-debug');
 var ngAnnotate = require('gulp-ng-annotate');
 var templateCache = require('gulp-angular-templatecache');
 var concat = require('gulp-concat');
+var autoprefixer = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
 var cleanCSS = require('gulp-clean-css');
 var ngConstant = require('gulp-ng-constant');
@@ -14,7 +15,7 @@ gulp.task('libs', ['lib-js', 'lib-css']);
 gulp.task('lib-js', function () {
     return gulp.src(bowerFiles("**/*.js"))
         .pipe(concat('vendor.js'))
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(gulp.dest('./dist/scripts'));
 });
 gulp.task('lib-css', function () {
@@ -24,9 +25,14 @@ gulp.task('lib-css', function () {
         .pipe(gulp.dest('./dist/assets/styles'));
 });
 gulp.task('scss', function () {
-    return gulp.src('./app/assets/**/*.scss')
+    return gulp.src('./app/assets/styles/main.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./dist/assets/'));
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(cleanCSS())
+        .pipe(gulp.dest('./dist/assets/styles'));
 });
 
 gulp.task('svg', function () {
@@ -53,7 +59,6 @@ gulp.task('index', function () {
 
 gulp.task('scripts', ['config'], function () {
     return gulp.src('./app/**/*.js')
-        .pipe(debug())
         .pipe(ngAnnotate())
         .pipe(concat('scripts.js'))
         //.pipe(uglify())

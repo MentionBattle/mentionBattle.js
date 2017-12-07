@@ -1,9 +1,22 @@
 <header class="info">
-    <header>{{vm.repo.getContender(vm.number).name}}</header>
-    <article>{{vm.repo.getContender(vm.number).votes}}</article>
+    <div>
+    <header>{{vm.contender.name}}</header>
+    <article>{{vm.contender.votes}}</article>
+    </div>
+    <div class="avatar">
+        <i ng-style="{'background-image':'url(' + vm.contender.image + ')'}"></i>
+    </div>
 </header>
-<article class="col-md-6" ng-class="{'col-md-offset-6': vm.number === 2}">
-    <ul class="mentions">
-        <mention class="mention-list-item" ng-repeat="mention in vm.repo.getContender(vm.number).mentions" mention="mention"></mention>
+<article class="col-md-12">
+    <div class="contender-progress-bar col-md-1">
+        <div class="progress progress-bar-vertical">
+            <div class="progress-bar" role="progressbar" ng-style="{'height': vm.computeProgress()}">
+                <span class="sr-only">60%</span>
+            </div>
+        </div>
+    </div>
+    <ul class="mentions col-md-7">
+        <mention class="mention-list-item" ng-repeat="mention in vm.contender.mentions"
+                 mention="mention"></mention>
     </ul>
 </article>

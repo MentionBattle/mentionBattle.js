@@ -9,8 +9,14 @@
             bindings: {
                 mention: '='
             },
-            controller: function () {
+            controller: function ($window) {
+                var vm = this;
 
+                vm.mentionClick = mentionClick;
+
+                function mentionClick() {
+                    $window.open(vm.mention.url, '_blank');
+                }
             }
         })
 })();

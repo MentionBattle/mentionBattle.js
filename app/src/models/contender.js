@@ -7,6 +7,7 @@
             var obj = function (options) {
                 this.name = options.name;
                 this.votes = options.votes;
+                this.image = options.image;
                 this.mentions = _.map(options.mentions, function (rawMention) {
                     return new Mention(rawMention);
                 });
