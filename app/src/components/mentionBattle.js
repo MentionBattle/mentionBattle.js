@@ -4,7 +4,7 @@
     var planeRed = '<i class="plane red"></i>';
     var planeBlue = '<i class="plane blue"></i>';
 
-    var planeDomElementDieInSeconds = 3;
+    var planeDomElementDieInSeconds = 2.8;
 
     angular
         .module('app')

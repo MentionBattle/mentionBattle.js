@@ -69,15 +69,15 @@ mention-battle {
       position: absolute;
       top: 48%;
       bottom: 0;
-      width: 48px;
-      height: 48px;
+      width: 64px;
+      height: 64px;
       transition: 3s ease-in;
       &:before {
         content: '';
         display: inline-block;
-        width: 48px;
-        height: 48px;
-        background-size: 48px 48px;
+        width: 64px;
+        height: 64px;
+        background-size: 64px 64px;
         background-position: center;
         background-repeat: no-repeat;
         transition: 3s ease-out;
@@ -104,7 +104,9 @@ mention-battle {
       &.move {
         &:before {
           transform: translateY(-50vh);
-          opacity: 0;
+          height: 0;
+          width: 0;
+          background-size: 0 0;
         }
       }
     }
@@ -270,19 +272,22 @@ mention-battle {
 }
 
 @media (max-width: $screen-md-min) {
-  .globe {
-    display: none;
-  }
-  .plane {
-    display: none;
-  }
-  .jumbotron contender {
-    & > article {
-      height: auto;
-      max-height: 670px;
-    }
-    .contender-progress-bar {
+  mention-battle {
+    height: auto;
+    .globe {
       display: none;
+    }
+    .plane {
+      display: none;
+    }
+    .jumbotron contender {
+      & > article {
+        height: auto;
+        max-height: 670px;
+      }
+      .contender-progress-bar {
+        display: none;
+      }
     }
   }
 }
