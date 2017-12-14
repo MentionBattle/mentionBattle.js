@@ -16,6 +16,9 @@
             obj.prototype.addMention = function (mention) {
                 this.votes++;
                 this.mentions.unshift(new Mention(mention));
+                if (_.size(this.mentions) >= 100) {
+                    this.mentions.pop();
+                }
             };
 
             return obj;

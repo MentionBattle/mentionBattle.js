@@ -45,20 +45,20 @@
         function onClose(event) {
             if (!event.wasClean) {
                 $log.error('WS disconnected abnormally');
+                retryCount--;
+                if (retryCount > 0) {
+                    loadingState.setMessage('Connection try #' + (5 - retryCount));
+                    $timeout(function () {
+                        $log.info('Trying to reconnect');
+                        open();
+                    }, 2000);
+                } else {
+                    loadingState.setError('Could not connect to server after 5 tries');
+                }
             } else {
                 $log.warn('WS disconnected normally');
             }
 
-            retryCount--;
-            if (retryCount > 0) {
-                loadingState.setMessage('Connection try #' + (5 - retryCount));
-                $timeout(function () {
-                    $log.info('Trying to reconnect');
-                    open();
-                }, 2000);
-            } else {
-                loadingState.setError('Could not connect to server after 5 tries');
-            }
             $rootScope.$apply();
         }
 

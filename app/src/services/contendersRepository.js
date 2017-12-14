@@ -20,8 +20,8 @@
         }
 
         function setContenders(input) {
-            contenders[1] = new Contender(input.contender1);
-            contenders[2] = new Contender(input.contender2);
+            contenders[1] = new Contender(_.first(input.contenders));
+            contenders[2] = new Contender(_.last(input.contenders));
             loadingState.setState('done');
             $rootScope.$broadcast(events.NEW_CONTENDERS);
         }
