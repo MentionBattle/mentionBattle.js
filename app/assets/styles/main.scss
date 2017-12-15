@@ -239,6 +239,13 @@ mention-battle {
             }
           }
 
+          &.reddit {
+            &:before {
+              background: url(../images/reddit.svg) center no-repeat;
+              background-size: 24px 24px;
+            }
+          }
+
           &.vk {
             &:before {
               background: url(../images/vk.svg) center no-repeat;

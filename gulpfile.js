@@ -90,5 +90,11 @@ gulp.task('tdd', function (done) {
     }, done).start();
 });
 
-gulp.task('default', ['templates', 'libs', 'scss', 'scripts', 'index', 'svg']);
+gulp.task('favicon', function () {
+    return gulp.src('./app/assets/images/logo.svg')
+        .pipe(concat('favicon.svg'))
+        .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('default', ['templates', 'libs', 'scss', 'scripts', 'index', 'svg', 'favicon']);
 gulp.task('travis', ['lint', 'test']);
