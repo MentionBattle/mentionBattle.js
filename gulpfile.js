@@ -10,6 +10,8 @@ var autoprefixer = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
 var cleanCSS = require('gulp-clean-css');
 var ngConstant = require('gulp-ng-constant');
+var jshint = require('gulp-jshint');
+var karma = require('karma').Server;
 
 gulp.task('libs', ['lib-js', 'lib-css']);
 gulp.task('lib-js', function () {
@@ -68,7 +70,8 @@ gulp.task('scripts', ['config'], function () {
 gulp.task('templates', function () {
     return gulp.src('./app/**/*.tpl.html')
         .pipe(templateCache('templates.js', {
-            standalone: true,
+            module: 'app',
+            standalone: false,
             transformUrl: function (url) {
                 return url.replace(/^.+\\(.+)$/, '$1')
             }
@@ -76,4 +79,24 @@ gulp.task('templates', function () {
         .pipe(gulp.dest('./dist/scripts'));
 });
 
+gulp.task('lint', function () {
+    return gulp.src(['./app/**/*.js', './tests/spec/**/*.js'])
+        .pipe(jshint())
+        .pipe(jshint.reporter('jshint-stylish'))
+});
+
+gulp.task('test', ['config'], function (done) {
+    new karma({
+        configFile: __dirname + '/tests/karma.conf.js',
+        singleRun: true
+    }, done).start();
+});
+
+gulp.task('tdd', function (done) {
+    new karma({
+        configFile: __dirname + '/tests/karma.conf.js',
+    }, done).start();
+});
+
 gulp.task('default', ['templates', 'libs', 'scss', 'scripts', 'index', 'svg']);
+gulp.task('travis', ['lint', 'test']);

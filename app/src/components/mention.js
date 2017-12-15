@@ -18,5 +18,5 @@
                     $window.open(vm.mention.url, '_blank');
                 }
             }
-        })
+        });
 })();

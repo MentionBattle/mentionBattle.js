@@ -5,5 +5,5 @@
         .module('app')
         .component('navbar', {
             templateUrl: 'navbar.tpl.html'
-        })
+        });
 })();

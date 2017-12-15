@@ -2,11 +2,7 @@
     'use strict';
 
     angular
-        .module('app', [
-            'ngAnimate',
-
-            'templates',
-            'config'])
+        .module('app', ['config'])
         .constant('moment', moment)
         .constant('_', _)
         .run(function ($rootScope, loadingState) {

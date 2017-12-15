@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/mentionbattle/mentionbattle.js.png)](https://travis-ci.org/mentionbattle/mentionbattle.js)
+[![Coverage Status](https://coveralls.io/repos/mentionbattle/mentionbattle.js/badge.svg?branch=master)](https://coveralls.io/r/mentionbattle/mentionbattle.js?branch=master)
+
 # MentionBattle.js
 
 ## Как собрать?

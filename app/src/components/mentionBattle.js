@@ -26,5 +26,5 @@
                     }, planeDomElementDieInSeconds * 1000);
                 });
             }
-        })
+        });
 })();

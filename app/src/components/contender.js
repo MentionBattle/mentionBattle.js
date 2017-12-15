@@ -31,5 +31,5 @@
                     return (100 * current / maximum).toString() + '%';
                 }
             }
-        })
+        });
 })();
