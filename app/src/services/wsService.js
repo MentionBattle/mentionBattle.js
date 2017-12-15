@@ -5,8 +5,9 @@
         .module('app')
         .service('wsService', wsService);
 
-    function wsService($log, $timeout, $rootScope, webSocketConfig, contendersRepository, loadingState) {
+    function wsService($log, $timeout, $rootScope, config, contendersRepository, loadingState) {
         var ws = null;
+
         var retryCount = 5;
         var methodsMap = {
             'init': contendersRepository.setContenders,
@@ -19,7 +20,7 @@
         };
 
         function open() {
-            ws = new WebSocket('ws://' + webSocketConfig.host + ':' + webSocketConfig.port + '/' + webSocketConfig.endpoint);
+            ws = new WebSocket('ws://' + config.webSocketConfig.host + ':' + config.webSocketConfig.port + '/' + config.webSocketConfig.endpoint);
             ws.onclose = onClose;
             ws.onmessage = onMessage;
             ws.onopen = onOpen;

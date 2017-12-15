@@ -9,7 +9,6 @@ var concat = require('gulp-concat');
 var autoprefixer = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
 var cleanCSS = require('gulp-clean-css');
-var ngConstant = require('gulp-ng-constant');
 var jshint = require('gulp-jshint');
 var karma = require('karma').Server;
 
@@ -44,14 +43,7 @@ gulp.task('svg', function () {
 
 gulp.task('config', function () {
     return gulp.src('app/config.json')
-        .pipe(ngConstant({
-            name: 'config',
-            wrap: true,
-            wrapHeader: "(function () { 'use strict';",
-            wrapFooter: "})();"
-        }))
-        // Writes config.js to dist/ folder
-        .pipe(gulp.dest('app/src/constants'));
+        .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('index', function () {

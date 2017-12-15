@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/mentionbattle/mentionbattle.js.png)](https://travis-ci.org/mentionbattle/mentionbattle.js)
-[![Coverage Status](https://coveralls.io/repos/mentionbattle/mentionbattle.js/badge.svg?branch=master)](https://coveralls.io/r/mentionbattle/mentionbattle.js?branch=master)
+[![Build Status](https://travis-ci.org/MentionBattle/mentionBattle.js.svg?branch=master)](https://travis-ci.org/MentionBattle/mentionBattle.js)
+[![Coverage Status](https://coveralls.io/repos/github/MentionBattle/mentionBattle.js/badge.svg?branch=master)](https://coveralls.io/github/MentionBattle/mentionBattle.js?branch=master)
 
 # MentionBattle.js
 
