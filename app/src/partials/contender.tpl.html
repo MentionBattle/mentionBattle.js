@@ -15,8 +15,10 @@
             </div>
         </div>
     </div>
-    <ul class="mentions col-md-7">
-        <mention class="mention-list-item" ng-repeat="mention in vm.contender.mentions"
-                 mention="mention"></mention>
-    </ul>
+    <div class="mentions-container col-md-7">
+        <ul class="mentions">
+            <mention class="mention-list-item" ng-repeat="mention in vm.contender.mentions"
+                     mention="mention"></mention>
+        </ul>
+    </div>
 </article>

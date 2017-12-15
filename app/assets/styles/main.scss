@@ -4,6 +4,7 @@ $irrelevantColor: #a5a5a5;
 
 @import "../../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap";
 @import "loader";
+@import "scrollbar";
 
 * {
   margin: 0;
@@ -164,7 +165,13 @@ mention-battle {
         }
       }
 
+      .mentions-container {
+        height: 100%;
+        overflow: auto;
+        @include cute-scrollbar();
+      }
       .mentions {
+        padding-top: 10px;
         list-style: none;
         .mention {
           height: 76px;
@@ -241,6 +248,15 @@ mention-battle {
         }
       }
 
+      &:first-of-type {
+        .mentions-container {
+          direction: rtl;
+          .mentions {
+            direction: ltr;
+          }
+        }
+      }
+
       &:last-of-type {
         .info {
           text-align: right;
@@ -252,8 +268,11 @@ mention-battle {
             background-color: transparentize($blueColor, 0.75);
           }
         }
-        .mentions {
+        .mentions-container {
           float: right;
+          .mentions {
+            float: right;
+          }
         }
         .contender-progress-bar {
           float: right;

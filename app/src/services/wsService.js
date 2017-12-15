@@ -32,7 +32,7 @@
         }
 
         function onMessage(msg) {
-            var parts = msg.data.split('|');
+            var parts = msg.data.split(/\|(.+)/);
             if (!methodsMap[parts[0]]) {
                 $log.error('No such method: ' + parts[0]);
                 return;

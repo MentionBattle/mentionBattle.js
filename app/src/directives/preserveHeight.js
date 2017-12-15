@@ -12,7 +12,7 @@
                 scope.$watch(function () {
                     return element.parent()[0].clientHeight;
                 }, function (newh) {
-                    var start = newh - 92;
+                    var start = newh - 92 + 10;
                     element.css('height', Math.floor(start / 96) * 96);
                 })
             }
