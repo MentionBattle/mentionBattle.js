@@ -11,18 +11,8 @@
     <link href="assets/styles/main.css" rel="stylesheet">
     <script src="scripts/vendor.js"></script>
     <script src="scripts/scripts.js"></script>
-    <script src="scripts/templates.js"></script>
 </head>
-<body>
-    <div ng-if="$root.loadingState.getState().state === 'loading'" class="loading-main">
-        <div class="loading-container loader">
-            <div class="loader"></div>
-            <div class="message">{{$root.loadingState.getState().error || $root.loadingState.getState().message}}</div>
-        </div>
-    </div>
-    <div ng-if="$root.loadingState.getState().state === 'done'" class="main">
-        <navbar></navbar>
-        <mention-battle></mention-battle>
-    </div>
+<body ng-app="app">
+    <main></main>
 </body>
 </html>

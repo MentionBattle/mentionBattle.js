@@ -171,6 +171,7 @@ mention-battle {
         @include cute-scrollbar();
       }
       .mentions {
+        width: 100%;
         padding-top: 10px;
         list-style: none;
         .mention {

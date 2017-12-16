@@ -1,6 +1,5 @@
 (function () {
     'use strict';
-
     describe('contender model', function () {
         var Contender = null;
         var instance = null;

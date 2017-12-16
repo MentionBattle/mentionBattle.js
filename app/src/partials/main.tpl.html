@@ -1,0 +1,10 @@
+<div ng-if="vm.loadingState.getState().state === 'loading'" class="loading-main">
+    <div class="loading-container loader">
+        <div class="loader"></div>
+        <div class="message">{{vm.loadingState.getState().error || vm.loadingState.getState().message}}</div>
+    </div>
+</div>
+<div ng-if="vm.loadingState.getState().state === 'done'" class="main">
+    <navbar></navbar>
+    <mention-battle></mention-battle>
+</div>

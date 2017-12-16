@@ -51,7 +51,7 @@ gulp.task('index', function () {
         .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('scripts', ['config'], function () {
+gulp.task('scripts', ['templates', 'config'], function () {
     return gulp.src('./app/**/*.js')
         .pipe(ngAnnotate())
         .pipe(concat('scripts.js'))
@@ -68,16 +68,17 @@ gulp.task('templates', function () {
                 return url.replace(/^.+\\(.+)$/, '$1')
             }
         }))
-        .pipe(gulp.dest('./dist/scripts'));
+        .pipe(gulp.dest('./app/src'));
 });
 
 gulp.task('lint', function () {
     return gulp.src(['./app/**/*.js', './tests/spec/**/*.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'))
+        .pipe(jshint.reporter("fail"));
 });
 
-gulp.task('test', ['config'], function (done) {
+gulp.task('test', ['templates', 'config'], function (done) {
     new karma({
         configFile: __dirname + '/tests/karma.conf.js',
         singleRun: true
@@ -96,5 +97,5 @@ gulp.task('favicon', function () {
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('default', ['templates', 'libs', 'scss', 'scripts', 'index', 'svg', 'favicon']);
+gulp.task('default', ['libs', 'scss', 'scripts', 'index', 'svg', 'favicon']);
 gulp.task('travis', ['lint', 'test']);

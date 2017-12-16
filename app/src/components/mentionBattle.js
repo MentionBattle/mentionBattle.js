@@ -12,7 +12,7 @@
             templateUrl: 'mention-battle.tpl.html',
             controllerAs: 'vm',
             controller: function ($scope, $element, events, $timeout) {
-                var target = document.querySelector('mention-battle').querySelector('.container');
+                var target = $element[0].querySelector('.container');
                 var lastPlane = Date.now();
 
                 $scope.$on(events.NEW_MENTION, makePlane);

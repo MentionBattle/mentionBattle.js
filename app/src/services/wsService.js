@@ -15,28 +15,22 @@
         };
 
         return {
-            open: open,
-            close: close
+            open: open
         };
 
         function open() {
-            ws = new WebSocket('ws://' + config.webSocketConfig.host + ':' + config.webSocketConfig.port + '/' + config.webSocketConfig.endpoint);
-            ws.onclose = onClose;
-            ws.onmessage = onMessage;
-            ws.onopen = onOpen;
-        }
-
-        function close() {
-            if (ws) {
-                ws.close(1000);
-            }
+            config.getConfig().then(function (config) {
+                ws = new WebSocket('ws://' + config.webSocketConfig.host + ':' + config.webSocketConfig.port + '/' + config.webSocketConfig.endpoint);
+                ws.onclose = onClose;
+                ws.onmessage = onMessage;
+                ws.onopen = onOpen;
+            });
         }
 
         function onMessage(msg) {
             var parts = msg.data.split(/\|(.+)/);
             if (!methodsMap[parts[0]]) {
-                $log.error('No such method: ' + parts[0]);
-                return;
+                throw new Error('No such method: ' + parts[0]);
             }
 
             methodsMap[parts[0]](JSON.parse(parts[1]));
